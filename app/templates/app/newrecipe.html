@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/newrecipe.css' %}" rel="stylesheet">
+    <title>レシピを投稿する</title>
+</head>
+<style>
+    a,a:hover,a:visited{
+            color: inherit;
+            text-decoration: none;
+        }
+</style>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="box1">
+                 <ul class="menu-group">
+                    <li class="menu-item"><a href="{% url 'app:cooklist'%}">お手軽レシピ</a></li>
+                    <li class="menu-item"><a href="{% url 'app:favorite' %}">お気に入り</a></li>
+                    <li class="menu-item"><a href="{% url 'app:memo'%}">買い物メモ</a></li>
+                </ul>
+            </div>
+        </nav> 
+    </header>
+        <form action="{% url 'app:newrecipe' %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            {{ recipe_form }}
+            <button type="submit">保存</button>
+        </form>
+</body>
+</html>

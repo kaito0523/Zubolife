@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <title>お手軽レシピ</title>
+        <link href="{% static 'css/cooklist.css' %}" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <style>
+        body{
+            background-color: #FFFBF5;
+        }
+        a,a:hover,a:visited{
+            color: inherit;
+            text-decoration: none;
+        }
+        .nav-item {
+        list-style: none;
+        font-family: 'Toppan Bunkyu Gothic'; font-weight: bold;
+        font-size:18.23px;
+        color: #F5C163;
+        display: inline-block;
+        padding-top: 60px;
+        letter-spacing: 0,1px;
+        }
+        .nav-item2 {
+        list-style: none;
+        font-family: 'Toppan Bunkyu Gothic'; font-weight: bold;
+        font-size:17px;
+        color: #F5C163;
+        display: inline-block;
+        padding-top: 60px;
+        letter-spacing: 0,1px;
+        }
+    </style>
+    <body>
+        <header>
+            <nav class="nav">
+                <div class="box1">
+                    <ul class="menu-group">
+                        <li class="menu-item"><a href="{% url 'app:cooklist'%}">お手軽レシピ</a></li>
+                        <li class="menu-item"><a href="{% url 'app:favorite' %}">お気に入り</a></li>
+                        <li class="menu-item"><a href="{% url 'app:memo'%}">買い物メモ</a></li>
+                    </ul>
+                </div>
+                <div class="accounts">
+                    <ul class="accounts-group" style="list-style: none;"> 
+                        {% if user.is_authenticated %}
+                        <li class='nav-item'>
+                            <span class='navbar-text'>{{ user }} - </span>
+                        </li>
+                        <li class='nav-item'>
+                            <a href='{% url "login" %}' class='logout nav-link'>ログアウト</a>
+                        </li>
+                        {% else %}
+                        <li class='nav-item2'>
+                            <a href='{% url "login" %}' class='login nav-link'>ログイン</a>
+                        </li>
+                        <li class="nav-item2">
+                            <a href='{% url "accounts:signup"%}' class='signup nav-link'>サインアップ</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav> 
+        </header>
+            <div class="title">
+                <h1>お手軽！時短レシピ</h1>
+            </div>
+            <p><a href="{% url 'app:newrecipe' %}" class="btn3" style="color: white;">レシピを投稿する</a></p>
+        <table>
+            {% for recipe in recipes %}
+            <div class="container">
+                    <ul class="list-item"><a href="{% url 'app:detail' recipe.id %}"><img src="{{ IMAGE_URL }}/{{ recipe.image }}" width="340" height="255"></a></ul>
+                    <ul class="list-item list-title"><a href="{% url 'app:detail' recipe.id %}">{{ recipe.title }}</a></ul>
+                    <ul class="list-item list-content" class="list-content"><a href="{% url 'app:detail' recipe.id %}">{{ recipe.content }}</a></ul>                     
+            </div>
+            <nobr></nobr>
+            {% endfor %}
+        </table>
+        
+    </body>
+</html>

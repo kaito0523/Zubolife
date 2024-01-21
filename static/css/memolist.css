@@ -1,0 +1,45 @@
+.menu-item {
+    font-family: 'Toppan Bunkyu Gothic'; font-weight: bold;
+    display: flex;
+    list-style: none;
+    padding: 0px 25px 0px;
+    font-size: 50px;
+    color: white ;
+    transition: all  0.3s ease;
+    display: inline; 
+}
+
+.menu-item:hover {
+    color: #37beb0;
+}
+
+header {
+    width: 100%;
+    height: 170px;
+}
+
+.box1 {
+    border: solid 2px #FFFBF5;
+    background-image: linear-gradient(90deg, rgba(65, 164, 253, 1), rgba(14, 226, 255, 1));
+    padding: 15px;
+    margin: 30px;
+    margin-left: 50px;
+    width: 75%;
+    height: 110px;
+    border-radius: 75px; /* 角を丸くする */
+}
+
+.btn3 {
+    display: inline-block;
+    background: rgba(65, 164, 253, 1); /* 背景色 */
+    color: white; /* 文字色 */
+    padding: 16px 40px; /* 上下の余白、左右の余白 */
+    text-decoration: none; /* デフォルトで入るリンクの下線を消す */
+    border-radius: 20px; /* 角を丸くする */
+    position: fixed;
+    top: 700px; /* #contents内の上から何pxか */
+    left: 1150px; /* #contents内の左から何pxか */
+    font-family: 'Toppan Bunkyu Gothic'; font-weight: normal;;
+    font-size:20px;
+    opacity: 0.9;
+}
