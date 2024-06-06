@@ -5,14 +5,12 @@ body {
 .menu-item {
     font-family: 'Toppan Bunkyu Gothic'; font-weight: bold;
     display: flex;
-    justify-content: center;
-    align-items: center;
     list-style: none;
-    display: inline-block;
     padding: 0px 25px 0px;
     font-size: 50px;
     color: white ;
     transition: all  0.3s ease;
+    display: inline; 
 }
 
 .menu-item:hover {
