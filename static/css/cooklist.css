@@ -2,89 +2,109 @@ body {
     background-color: #FFFBF5;
 }
 
+html {
+    scroll-behavior: smooth; /* スムーズスクロール用 */
+}
+
 .menu-item {
-    font-family: 'Toppan Bunkyu Gothic'; font-weight: bold;
-    display: flex;
+    font-family: 'Toppan Bunkyu Gothic', sans-serif;
+    font-weight: bold;
+    display: inline-block;
     list-style: none;
-    padding: 0px 25px 0px;
+    padding: 0px 25px;
     font-size: 50px;
-    color: white ;
-    transition: all  0.3s ease;
-    display: inline; 
+    color: white;
+    transition: all 0.3s ease;
 }
 
 .menu-item:hover {
     color: #37beb0;
+    transform: scale(1.1); /* ホバー時の拡大効果 */
 }
 
 header {
     width: 100%;
     height: 170px;
-    background-color:#FFFBF5 ;
+    background-color: #FFFBF5;
 }
 
 .box1 {
     border: solid 2px #FFFBF5;
     background-image: linear-gradient(90deg, rgba(248, 134, 57, 1), rgba(250, 168, 25, 0.64) 0%, rgba(238, 197, 89, 0.84));
     padding: 15px;
-    margin: 30px;
-    margin-left: 50px;
+    margin: 30px 50px;
     width: 75%;
     height: 110px;
-    border-radius: 75px; /* 角を丸くする */
+    border-radius: 75px;
 }
-
 
 h1 {
     font-size: 120px !important;
-    padding: 30px 180px 30px;
-    font-family: 'Toppan Bunkyu Midashi Gothic'; font-weight: bold;
+    padding: 30px 180px;
+    font-family: 'Toppan Bunkyu Midashi Gothic', sans-serif;
+    font-weight: bold;
     color: #F5C163;
 }
 
-.list-item{
+.list-item {
     color: #b27503;
     list-style: none;
-    background-color:#FFFBF5;
+    background-color: #FFFBF5;
     width: 100%;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all  0.3s ease;
-    
+    transition: all 0.3s ease;
 }
 
 .list-item:hover {
-    color :#37beb0;
-    }
+    color: #37beb0;
+}
 
 .list-title {
-    font-family: 'Toppan Bunkyu Gothic'; font-weight: bold;
+    font-family: 'Toppan Bunkyu Gothic', sans-serif;
+    font-weight: bold;
     font-size: 25px;
 }
 
 .list-content {
-    font-family: 'Toppan Bunkyu Gothic'; font-weight: normal;
+    font-family: 'Toppan Bunkyu Gothic', sans-serif;
+    font-weight: normal;
     font-size: 20px;
 }
 
 .container {
-    padding:15px;
-    display:flex;
+    padding: 15px;
+    display: flex;
     background-color: #FFFBF5;
+    transition: all 0.3s ease; /* コンテナのトランジション */
+}
+
+.container:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ホバー時の影 */
+    transform: translateY(-5px); /* ホバー時の浮き上がり効果 */
 }
 
 .btn3 {
     display: inline-block;
-    background: #F5C163; /* 背景色 */
-    color: white; /* 文字色 */
-    padding: 16px 40px; /* 上下の余白、左右の余白 */
-    text-decoration: none; /* デフォルトで入るリンクの下線を消す */
-    border-radius: 20px; /* 角を丸くする */
+    background: #F5C163;
+    color: white;
+    padding: 16px 40px;
+    text-decoration: none;
+    border-radius: 20px;
     position: fixed;
-    top: 700px; /* #contents内の上から何pxか */
-    left: 1150px; /* #contents内の左から何pxか */
-    font-family: 'Toppan Bunkyu Gothic'; font-weight: normal;;
-    font-size:20px;
+    top: 700px;
+    left: 1150px;
+    font-family: 'Toppan Bunkyu Gothic', sans-serif;
+    font-weight: normal;
+    font-size: 20px;
     opacity: 0.9;
+    transition: background-color 0.3s, transform 0.3s; /* ボタンのトランジション */
+}
+
+.btn3:hover {
+    background-color: #f3b441; /* ホバー時の背景色変更 */
+    transform: scale(1.05); /* ホバー時の拡大効果 */
+}
+
+/* レシピ画像のフェードインアニメーション用 */
+.list-item img {
+    transition: opacity 1s;
 }
