@@ -1,9 +1,10 @@
 body {
     background-color: #FFFBF5;
+    width: 100%;
 }
 
 html {
-    scroll-behavior: smooth; /* スムーズスクロール用 */
+    scroll-behavior: smooth; 
 }
 
 .menu-item {
@@ -19,7 +20,8 @@ html {
 
 .menu-item:hover {
     color: #37beb0;
-    transform: scale(1.1); /* ホバー時の拡大効果 */
+    transform: scale(1.1);
+    z-index: 950; 
 }
 
 header {
@@ -74,12 +76,14 @@ h1 {
     padding: 15px;
     display: flex;
     background-color: #FFFBF5;
-    transition: all 0.3s ease; /* コンテナのトランジション */
+    transition: all 0.3s ease; 
+    flex-direction: column;
+    align-items: center;
 }
 
 .container:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* ホバー時の影 */
-    transform: translateY(-5px); /* ホバー時の浮き上がり効果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-5px);
 }
 
 .btn3 {
@@ -96,15 +100,37 @@ h1 {
     font-weight: normal;
     font-size: 20px;
     opacity: 0.9;
-    transition: background-color 0.3s, transform 0.3s; /* ボタンのトランジション */
+    transition: background-color 0.3s, transform 0.3s; 
+    z-index: 1000; 
 }
 
 .btn3:hover {
-    background-color: #f3b441; /* ホバー時の背景色変更 */
-    transform: scale(1.05); /* ホバー時の拡大効果 */
+    background-color: #f3b441; 
+    transform: scale(1.05);
 }
 
-/* レシピ画像のフェードインアニメーション用 */
 .list-item img {
     transition: opacity 1s;
+}
+
+.nav-item {
+    list-style: none;
+    font-family: 'Toppan Bunkyu Gothic';
+    font-weight: bold;
+    font-size: 18.23px;
+    color: #F5C163;
+    display: inline-block;
+    padding-top: 60px;
+    letter-spacing: 0.1px;
+}
+
+.nav-item2 {
+    list-style: none;
+    font-family: 'Toppan Bunkyu Gothic';
+    font-weight: bold;
+    font-size: 17px;
+    color: #F5C163;
+    display: inline-block;
+    padding-top: 60px;
+    letter-spacing: 0.1px;
 }

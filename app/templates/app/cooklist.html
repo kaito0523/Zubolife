@@ -35,74 +35,76 @@
         }
     </style>
     <script>
-        // ページ読み込み完了時に実行する関数
-    document.addEventListener('DOMContentLoaded', function() {
-        // ナビゲーションメニューのホバーエフェクト
-        const menuItems = document.querySelectorAll('.menu-item');
-        menuItems.forEach(item => {
-            item.addEventListener('mouseover', function() {
-                this.style.transform = 'scale(1.1)';
-                this.style.transition = 'transform 0.3s';
-            });
-            item.addEventListener('mouseout', function() {
-                this.style.transform = 'scale(1)';
-            });
+document.addEventListener('DOMContentLoaded', function() {
+    // ナビゲーションメニューのホバーエフェクト
+    const menuItems = document.querySelectorAll('.menu-item');
+    menuItems.forEach(item => {
+        item.addEventListener('mouseover', function() {
+            this.style.transform = 'scale(1.1)';
+            this.style.transition = 'transform 0.3s';
+            this.style.zIndex = '950'; // 投稿ボタンのz-indexより小さな値
         });
-
-        // レシピカードのホバーエフェクト
-        const recipeCards = document.querySelectorAll('.container');
-        recipeCards.forEach(card => {
-            card.addEventListener('mouseover', function() {
-                this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-                this.style.transform = 'translateY(-5px)';
-                this.style.transition = 'all 0.3s ease';
-            });
-            card.addEventListener('mouseout', function() {
-                this.style.boxShadow = 'none';
-                this.style.transform = 'translateY(0)';
-            });
+        item.addEventListener('mouseout', function() {
+            this.style.transform = 'scale(1)';
+            this.style.zIndex = 'auto';
         });
-
-        // スムーズスクロール
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // 「レシピを投稿する」ボタンのアニメーション
-        const postButton = document.querySelector('.btn3');
-        if (postButton) {
-            postButton.addEventListener('mouseover', function() {
-                this.style.backgroundColor = '#F5C163';
-                this.style.transition = 'background-color 0.3s';
-            });
-            postButton.addEventListener('mouseout', function() {
-                this.style.backgroundColor = '';
-            });
-        }
-
-        // レシピ画像のフェードインアニメーション
-        const recipeImages = document.querySelectorAll('.list-item img');
-        recipeImages.forEach(img => {
-            img.style.opacity = '0';
-            img.style.transition = 'opacity 1s';
-        });
-
-        // Intersection Observerを使用して画像が表示領域に入ったらフェードイン
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                }
-            });
-        });
-
-        recipeImages.forEach(img => observer.observe(img));
     });
+
+    // レシピカードのホバーエフェクト
+    const recipeCards = document.querySelectorAll('.container');
+    recipeCards.forEach(card => {
+        card.addEventListener('mouseover', function() {
+            this.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+            this.style.transform = 'translateY(-5px)';
+            this.style.transition = 'all 0.3s ease';
+            this.style.zIndex = '950'; // 投稿ボタンのz-indexより小さな値
+        });
+        card.addEventListener('mouseout', function() {
+            this.style.boxShadow = 'none';
+            this.style.transform = 'translateY(0)';
+        });
+    });
+
+    // スムーズスクロール
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // 「レシピを投稿する」ボタンのアニメーション
+    const postButton = document.querySelector('.btn3');
+    if (postButton) {
+        postButton.addEventListener('mouseover', function() {
+            this.style.backgroundColor = '#F5C163';
+            this.style.transition = 'background-color 0.3s';
+        });
+        postButton.addEventListener('mouseout', function() {
+            this.style.backgroundColor = '';
+        });
+    }
+
+    // レシピ画像のフェードインアニメーション
+    const recipeImages = document.querySelectorAll('.list-item img');
+    recipeImages.forEach(img => {
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 1s';
+    });
+
+    // Intersection Observerを使用して画像が表示領域に入ったらフェードイン
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+            }
+        });
+    });
+
+    recipeImages.forEach(img => observer.observe(img));
+});
     </script>
     <body>
         <header>
